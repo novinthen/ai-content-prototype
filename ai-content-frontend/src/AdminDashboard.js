@@ -15,7 +15,7 @@ function AdminDashboard() {
   }, []);
 
   const fetchGenerations = async () => {
-    const res = await axios.get('https://your-backend-url.vercel.app/generations');
+    const res = await axios.get('https://ai-content-prototype.vercel.app/generations');
     setGenerations(res.data);
   };
 
@@ -23,7 +23,7 @@ function AdminDashboard() {
     if (!url) return toast.error('Enter a URL');
     setLoading(true);
     try {
-      await axios.post('https://your-backend-url.vercel.app/generate', { url, type });
+      await axios.post('https://ai-content-prototype.vercel.app/generate', { url, type });
       toast.success('Generation complete');
       fetchGenerations();
     } catch (error) {
