@@ -17,6 +17,7 @@ admin.initializeApp({
   databaseURL: 'https://ai-content-prototype.firebaseio.com'
 });
 const db = admin.firestore();
+console.log('Firebase initialized successfully');
 
 const CABANGS = [
   'CABANG – KEPONG', 'CABANG – BATU', 'CABANG – WANGSA MAJU', 'CABANG – SEGAMBUT',
@@ -114,5 +115,5 @@ app.post('/view', async (req, res) => {
   });
   res.json({ success: true });
 });
-
+console.log('Routes defined: /generate, /generations, /generations/:cabang, /view');
 app.listen(process.env.PORT || 5000, () => console.log(`Backend running on port ${process.env.PORT}`));
