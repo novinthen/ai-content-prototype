@@ -14,11 +14,11 @@ function UserInterface() {
   const handleSubmit = async () => {
     setSubmitted(true);
     try {
-      const res = await axios.get(`https://your-backend-url.vercel.app/generations/${cabang}`);
+      const res = await axios.get(`https://ai-content-prototype.vercel.app/generations/${cabang}`);
       if (res.data.error) return toast.error(res.data.error);
       setGenerations(res.data);
       setSelectedGen(res.data[0]);
-      await axios.post('https://your-backend-url.vercel.app/view', { generationId: res.data[0].id, cabang });
+      await axios.post('https://ai-content-prototype.vercel.app/view', { generationId: res.data[0].id, cabang });
     } catch (error) {
       toast.error('Error fetching content');
     }
